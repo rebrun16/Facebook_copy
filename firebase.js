@@ -1,5 +1,4 @@
-import { initializeApp } from "firebase/app";
-import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
 import "firebase/storage";
 
 const firebaseConfig = {
@@ -11,9 +10,12 @@ const firebaseConfig = {
   appId: "1:158093182974:web:5cc0d7af23069ca10262af"
 };
 
-const app = !firebase.apps.lenght ? firebase.initializeApp(firebaseConfig) : firebase.app();
+const app = !firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig)
+  : firebase.app();
 
-const db = app.firestore();
-const storage = firebase.storage();
+const db = app.firestore;
+const auth = app.auth;
+const storage = firebase.storage;
 
-export { db, storage};
+export { auth, db, storage };
